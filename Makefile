@@ -1,4 +1,4 @@
-.PHONY: install lint test coverage run docker
+.PHONY: install lint test coverage run docker coverage-html
 
 install:
 	pip install -r requirements.txt
@@ -11,6 +11,9 @@ test:
 
 coverage:
 	pytest --cov=src --cov-report=term-missing
+
+coverage-html:
+	pytest --cov=src --cov-report=html
 
 run:
 	python src/main.py
