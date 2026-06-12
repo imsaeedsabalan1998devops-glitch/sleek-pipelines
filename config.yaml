@@ -1,0 +1,3 @@
+app:
+  message: "DevOps Playground is alive 🔥"
+  log_level: "INFO"
