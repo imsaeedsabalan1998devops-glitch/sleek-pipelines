@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: devops_playground
+    command: python src/main.py
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
