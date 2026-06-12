@@ -1,7 +1,6 @@
 import logging
 import yaml
-from health import health_check
-from metrics import get_metrics
+from server import start_server
 
 # Load config
 with open("config.yaml", "r") as f:
@@ -16,11 +15,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def run():
-    logger.info("Application started with config")
-    logger.info(f"Health: {health_check()}")
-    logger.info(f"Metrics: {get_metrics()}")
-    return config["app"]["message"]
+    logger.info("Starting HTTP server on port 8000")
+    start_server(8000)
 
 if __name__ == "__main__":
-    output = run()
-    print(output)
+    run()
