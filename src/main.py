@@ -1,6 +1,7 @@
 import logging
 import yaml
 from health import health_check
+from metrics import get_metrics
 
 # Load config
 with open("config.yaml", "r") as f:
@@ -16,9 +17,10 @@ logger = logging.getLogger(__name__)
 
 def run():
     logger.info("Application started with config")
+    logger.info(f"Health: {health_check()}")
+    logger.info(f"Metrics: {get_metrics()}")
     return config["app"]["message"]
 
 if __name__ == "__main__":
-    logger.info(f"Health: {health_check()}")
     output = run()
     print(output)
