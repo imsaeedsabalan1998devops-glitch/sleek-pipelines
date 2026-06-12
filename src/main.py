@@ -1,5 +1,6 @@
 import logging
 import yaml
+from health import health_check
 
 # Load config
 with open("config.yaml", "r") as f:
@@ -18,5 +19,6 @@ def run():
     return config["app"]["message"]
 
 if __name__ == "__main__":
+    logger.info(f"Health: {health_check()}")
     output = run()
     print(output)
