@@ -1,4 +1,8 @@
 import subprocess
+from src.main import run
+
+def test_placeholder():
+    assert True
 
 def test_run_main():
     result = subprocess.run(
@@ -7,3 +11,6 @@ def test_run_main():
         text=True
     )
     assert "DevOps Playground is alive" in result.stdout
+
+def test_run_function():
+    assert run() == "DevOps Playground is alive 🔥"
